@@ -10,6 +10,7 @@ public class Bank : MonoBehaviour
     [SerializeField] GameObject valueObj, chipHolder;
     [SerializeField] TextMeshProUGUI valueText;
     [SerializeField] Transform playerWinHolderPos, delaerWinHolderPos;
+    [SerializeField] Player player;
 
     public int value;
 
@@ -24,6 +25,7 @@ public class Bank : MonoBehaviour
 
         chips.Add(chipObj);
 
+        player.ChangeMoney(chipValue * -1);
         value += chipValue;
         valueText.text = value.ToString();
 
