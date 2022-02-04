@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
     }
     public void Win()
     {
+        player.ChangeMoney(bank.bet * 2);
+
         uiManager.ShowResult(uiManager.winObj);
         bank.PlayerGetTheChips();
     }
@@ -40,6 +42,8 @@ public class GameManager : MonoBehaviour
     }
     public void Push()
     {
+        player.ChangeMoney(bank.bet);
+
         uiManager.ShowResult(uiManager.pushObj);
         bank.PlayerGetTheChips();
     }
@@ -54,6 +58,8 @@ public class GameManager : MonoBehaviour
     {
         if (state == State.StartOfHand)
         {
+            if (bank.bet == 0) bank.DealWithTheLastBet();
+
             dealManager.StartDraw();
             uiManager.dealButton.transform.DOMoveX(uiManager.buttonHidePos.position.x, 0.5f);
         }

@@ -11,18 +11,18 @@ public class Card : MonoBehaviour
 
     public int id, value;
     public bool dealingFinished, doNotTurn;
-    public float time;
+    //public float time;
 
 
-    public void Dealing(Vector3 pos, int orderInLayer,Vector3 rotation, Vector3 scale)
+    public void Dealing(Vector3 pos, int orderInLayer,Vector3 rotation, Vector3 scale,float speed)
     {
-        time = Vector2.Distance(transform.position, pos) / dealingSpeed;
-        transform.DOMove(pos, time).OnComplete(Turn);
+        //time = Vector2.Distance(transform.position, pos) / dealingSpeed;
+        transform.DOMove(pos, speed).OnComplete(Turn);
 
-        transform.DOScale(scale, time);
+        transform.DOScale(scale, speed);
 
-        if (!doNotTurn) transform.DORotate(rotation, time);
-        else transform.DORotate(new Vector3(0, 0, rotation.z), time); //Dealer second card not turning
+        if (!doNotTurn) transform.DORotate(rotation, speed);
+        else transform.DORotate(new Vector3(0, 0, rotation.z), speed); //Dealer second card not turning
 
         //set order in layer
         face.sortingOrder = orderInLayer;

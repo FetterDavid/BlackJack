@@ -3347,6 +3347,7 @@ MonoBehaviour:
   value: 25
   chipObj: {fileID: 1721454023210148304, guid: 38514f8dc3bf9f04099a90fd6f484d7c, type: 3}
   bank: {fileID: 1189412185}
+  gameManager: {fileID: 677202032}
 --- !u!1 &963133467
 GameObject:
   m_ObjectHideFlags: 0
@@ -3817,6 +3818,7 @@ MonoBehaviour:
   secondCard: {fileID: 1625615503}
   cardSize: {x: 2.8, y: 2.8, z: 1}
   playerHand: 0
+  dealingSpeed: 0.175
   handValue: {fileID: 2137190830}
   gameManager: {fileID: 677202032}
 --- !u!1 &1070086011
@@ -4307,13 +4309,19 @@ MonoBehaviour:
   - {fileID: 910410102}
   - {fileID: 838440530}
   - {fileID: 1340386888}
-  valueObj: {fileID: 1907463729}
+  betObj: {fileID: 1907463729}
   chipHolder: {fileID: 1571994736}
-  valueText: {fileID: 2080299963}
+  betText: {fileID: 2080299963}
   playerWinHolderPos: {fileID: 519465966}
   delaerWinHolderPos: {fileID: 590141174}
   player: {fileID: 963133469}
-  value: 0
+  chip25: {fileID: 932196376}
+  chip50: {fileID: 2104617722}
+  chip100: {fileID: 2044386348}
+  chip250: {fileID: 1432431869}
+  chip500: {fileID: 1375286073}
+  bet: 0
+  lastBet: 0
 --- !u!1 &1190972123
 GameObject:
   m_ObjectHideFlags: 0
@@ -4935,6 +4943,7 @@ MonoBehaviour:
   value: 500
   chipObj: {fileID: 4125378153317931195, guid: 569e515c0b0b7c04ebd05232e41b66e3, type: 3}
   bank: {fileID: 1189412185}
+  gameManager: {fileID: 677202032}
 --- !u!1 &1375317416
 GameObject:
   m_ObjectHideFlags: 0
@@ -5416,6 +5425,7 @@ MonoBehaviour:
   secondCard: {fileID: 729025989}
   cardSize: {x: 3.5, y: 3.5, z: 1}
   playerHand: 1
+  dealingSpeed: 0.25
   handValue: {fileID: 1882821111}
   gameManager: {fileID: 677202032}
 --- !u!4 &1411070168
@@ -5628,6 +5638,7 @@ MonoBehaviour:
   value: 250
   chipObj: {fileID: 7589734658223766708, guid: e58b82bdaedfa4b40a167c6fc4ccb100, type: 3}
   bank: {fileID: 1189412185}
+  gameManager: {fileID: 677202032}
 --- !u!1 &1459465533
 GameObject:
   m_ObjectHideFlags: 0
@@ -8224,6 +8235,7 @@ MonoBehaviour:
   value: 100
   chipObj: {fileID: 2856643445204859450, guid: a9d4afada7723ba449328aec051a56db, type: 3}
   bank: {fileID: 1189412185}
+  gameManager: {fileID: 677202032}
 --- !u!1 &2045044992
 GameObject:
   m_ObjectHideFlags: 0
@@ -8940,6 +8952,7 @@ MonoBehaviour:
   value: 50
   chipObj: {fileID: 5200802773181285649, guid: 0c8f6625cb628a240b4e22c62291fd52, type: 3}
   bank: {fileID: 1189412185}
+  gameManager: {fileID: 677202032}
 --- !u!1 &2127444907
 GameObject:
   m_ObjectHideFlags: 0

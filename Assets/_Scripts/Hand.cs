@@ -9,6 +9,7 @@ public class Hand : MonoBehaviour
     [SerializeField] Transform firstCard, secondCard;
     [SerializeField] Vector3 cardSize;
     [SerializeField] bool playerHand;
+    [SerializeField] float dealingSpeed;
 
     public HandValue handValue;
     public GameManager gameManager;
@@ -19,11 +20,11 @@ public class Hand : MonoBehaviour
         handValue.Change();
 
         //First 2 card
-        if (cards.Count == 1) card.Dealing(firstCard.position, cards.Count, new Vector3(0, 0, firstCard.rotation.eulerAngles.z), cardSize);
+        if (cards.Count == 1) card.Dealing(firstCard.position, cards.Count, new Vector3(0, 0, firstCard.rotation.eulerAngles.z), cardSize, dealingSpeed);
         else if (cards.Count == 2)
         {
             card.doNotTurn = !playerHand;
-            card.Dealing(secondCard.position, cards.Count, new Vector3(0, 0, secondCard.rotation.eulerAngles.z), cardSize);
+            card.Dealing(secondCard.position, cards.Count, new Vector3(0, 0, secondCard.rotation.eulerAngles.z), cardSize, dealingSpeed);
         }
 
         // More than 2 cards
@@ -31,7 +32,7 @@ public class Hand : MonoBehaviour
         {
             float startPos = cards.Count * -0.25f + 0.25f;
 
-            card.Dealing(new Vector3(startPos * -1, transform.position.y, 0), cards.Count, new Vector3(0, 0, 0), cardSize);
+            card.Dealing(new Vector3(startPos * -1, transform.position.y, 0), cards.Count, new Vector3(0, 0, 0), cardSize, dealingSpeed);
 
             for (int i = 0; i < cards.Count - 1; i++)
             {
