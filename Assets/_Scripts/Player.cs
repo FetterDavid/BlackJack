@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 using DG.Tweening;
 
 public class Player : MonoBehaviour
@@ -11,18 +12,40 @@ public class Player : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI moneyText;
 
-    private void Start()
+    private bool moneyIsChanging;
+    private float moneyChangingValue;
+
+    private void Start()    
     {
-        PlayerPrefs.SetInt("money", 5000);
         money = PlayerPrefs.GetInt("money");
-        if (money == 0) money = 5000;
+        if (money <= 0) money = 5000;
         moneyText.text = money.ToString();
+    }
+
+    private void FixedUpdate()
+    {
+        if (moneyIsChanging)
+        {
+            int currentMoney = Convert.ToInt32(moneyText.text);
+
+            if (Math.Abs(currentMoney - money) > Math.Abs(moneyChangingValue))
+            {
+                moneyText.text = (currentMoney + moneyChangingValue).ToString();
+            }
+            else
+            {
+                moneyText.text = (money).ToString();
+                moneyIsChanging = false;
+            }
+        }
     }
 
     public void ChangeMoney(int changeValue)
     {
-        DOVirtual.Int(money, money + changeValue, 0.5f, v => { moneyText.text = v.ToString(); });
         money += changeValue;
         PlayerPrefs.SetInt("money",money);
+
+        moneyIsChanging = true;
+        moneyChangingValue = Convert.ToInt32((money - Convert.ToInt32(moneyText.text)) / 20.0f);
     }
 }

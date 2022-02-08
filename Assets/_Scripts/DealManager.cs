@@ -73,10 +73,8 @@ public class DealManager : MonoBehaviour
         if (playerHand.handValue.value == 21 || dealerHand.handValue.value == 21)
         {
             gameManager.Result();
-            return;
         }
-
-        uiManager.StartPlayerTurn();
+        else uiManager.StartPlayerTurn();
     }
     public async Task Draw(Hand hand)
     {

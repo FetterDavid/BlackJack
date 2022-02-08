@@ -10,17 +10,32 @@ public class HandValue : MonoBehaviour
     [SerializeField] private TextMeshProUGUI valueText;
 
     public int value = 0;
+    public int value1, value2;
 
     public void Change()
     {
-        int newValue = 0;
+        value1 = 0;
+        value2 = 0;
+
         for (int i = 0; i < hand.cards.Count; i++)
         {
-            newValue += hand.cards[i].value;
+            if (hand.cards[i].value == 11)
+            {
+                if (value2 + 11 < 21) value2 += 11;
+                else value2 = value1 + 11;
+                value1++;
+            }
+            else {
+                value1 += hand.cards[i].value;
+                value2 += hand.cards[i].value;
+            }
         }
 
-        value = newValue;
-        valueText.text = newValue.ToString();
+        if (value2 <= 21) value = value2;
+        else value = value1;
+
+        //value = value2 <= 21 ? value2 : value1;
+        valueText.text = value.ToString();
     }
 
     public void Show()

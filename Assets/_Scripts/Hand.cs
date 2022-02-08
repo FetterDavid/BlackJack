@@ -8,7 +8,7 @@ public class Hand : MonoBehaviour
     public  List<Card> cards = new List<Card>();
     [SerializeField] Transform firstCard, secondCard;
     [SerializeField] Vector3 cardSize;
-    [SerializeField] bool playerHand;
+    [SerializeField] bool isPlayerHand;
     [SerializeField] float dealingSpeed;
 
     public HandValue handValue;
@@ -23,7 +23,7 @@ public class Hand : MonoBehaviour
         if (cards.Count == 1) card.Dealing(firstCard.position, cards.Count, new Vector3(0, 0, firstCard.rotation.eulerAngles.z), cardSize, dealingSpeed);
         else if (cards.Count == 2)
         {
-            card.doNotTurn = !playerHand;
+            card.doNotTurn = !isPlayerHand;
             card.Dealing(secondCard.position, cards.Count, new Vector3(0, 0, secondCard.rotation.eulerAngles.z), cardSize, dealingSpeed);
         }
 
@@ -42,7 +42,7 @@ public class Hand : MonoBehaviour
         }
 
         //Bust
-        BustCheck(card);
+        if(isPlayerHand)BustCheck(card);
     }
     public void Clear()
     {

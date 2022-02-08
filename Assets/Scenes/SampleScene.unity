@@ -3817,7 +3817,7 @@ MonoBehaviour:
   firstCard: {fileID: 423795885}
   secondCard: {fileID: 1625615503}
   cardSize: {x: 2.8, y: 2.8, z: 1}
-  playerHand: 0
+  isPlayerHand: 0
   dealingSpeed: 0.175
   handValue: {fileID: 2137190830}
   gameManager: {fileID: 677202032}
@@ -4314,7 +4314,6 @@ MonoBehaviour:
   betText: {fileID: 2080299963}
   playerWinHolderPos: {fileID: 519465966}
   delaerWinHolderPos: {fileID: 590141174}
-  player: {fileID: 963133469}
   chip25: {fileID: 932196376}
   chip50: {fileID: 2104617722}
   chip100: {fileID: 2044386348}
@@ -4322,6 +4321,7 @@ MonoBehaviour:
   chip500: {fileID: 1375286073}
   bet: 0
   lastBet: 0
+  player: {fileID: 963133469}
 --- !u!1 &1190972123
 GameObject:
   m_ObjectHideFlags: 0
@@ -5424,7 +5424,7 @@ MonoBehaviour:
   firstCard: {fileID: 1179940260}
   secondCard: {fileID: 729025989}
   cardSize: {x: 3.5, y: 3.5, z: 1}
-  playerHand: 1
+  isPlayerHand: 1
   dealingSpeed: 0.25
   handValue: {fileID: 1882821111}
   gameManager: {fileID: 677202032}

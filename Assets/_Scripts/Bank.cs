@@ -10,10 +10,10 @@ public class Bank : MonoBehaviour
     [SerializeField] GameObject betObj, chipHolder;
     [SerializeField] TextMeshProUGUI betText;
     [SerializeField] Transform playerWinHolderPos, delaerWinHolderPos;
-    [SerializeField] Player player;
     [SerializeField] Chip chip25, chip50, chip100, chip250, chip500;
 
     public int bet, lastBet;
+    public  Player player;
 
     private List<GameObject> chips = new List<GameObject>();
 
