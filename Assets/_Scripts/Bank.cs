@@ -35,6 +35,24 @@ public class Bank : MonoBehaviour
         chipObj.transform.SetParent(chipHolder.transform));
         chipObj.transform.DOScale(new Vector3(0.66f, 0.66f, 1), 0.5f);
     }
+    public void RemoveChip(ChipInBank chipInBank)
+    {
+        chips.Remove(chipInBank.gameObject);
+
+        player.ChangeMoney(chipInBank.value);
+        bet -= chipInBank.value;
+        lastBet = bet;
+        betText.text = bet.ToString();
+
+        if (bet == 0)
+        {
+            betObj.transform.DOScale(new Vector3(0, 0, 1), 0.2f);
+        }
+
+        chipInBank.gameObject.transform.DOMove(chipInBank.parentChipPos, 0.5f).OnComplete(() =>
+        Destroy(chipInBank.gameObject));
+        chipInBank.gameObject.transform.DOScale(new Vector3(0.66f, 0.66f, 1), 0.5f);
+    }
     public void PlayerGetTheChips()
     {
         chipHolder.transform.DOMove(playerWinHolderPos.position, 0.3f).OnComplete(ChipHolderReset);

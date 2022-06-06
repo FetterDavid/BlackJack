@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     //----------------------------------------------Actions----------------------------------------------------------------
     public void Deal()
     {
-        if (state == State.StartOfHand)
+        if (state == State.StartOfHand && bank.lastBet != 0)
         {
             if (bank.bet == 0) bank.DealWithTheLastBet();
 
@@ -67,7 +67,15 @@ public class GameManager : MonoBehaviour
     public void PlayerHit()
     {
         if (state == State.PlayerTurn)
-            dealManager.Hit(dealManager.playerHand);
+            dealManager.Hit(dealManager.playerHand, false);
+    }
+    public void DoubleBet()
+    {
+        if (player.money >= bank.lastBet)
+        {
+            bank.DealWithTheLastBet();
+            dealManager.Hit(dealManager.playerHand, true);
+        }
     }
     public void Stand()
     {
@@ -81,7 +89,7 @@ public class GameManager : MonoBehaviour
     {
         if (state == State.DealerTurn)
         {
-            dealManager.Hit(dealer.hand);
+            dealManager.Hit(dealer.hand, false);
         }
     }
     public void HandsClear()
