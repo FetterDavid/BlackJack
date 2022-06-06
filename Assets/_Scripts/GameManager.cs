@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
         state = State.EndOfHand;
 
         if(dealer.hand.cards[1].doNotTurn) await dealManager.TurnDealerSecondCard();
+        dealer.hand.handValue.Show();
 
         if (player.hand.handValue.value > 21) Bust();
         else if ((player.hand.handValue.value > dealer.hand.handValue.value && dealer.hand.handValue.value <= 21)
@@ -58,7 +59,7 @@ public class GameManager : MonoBehaviour
     {
         if (state == State.StartOfHand && bank.lastBet != 0)
         {
-            if (bank.bet == 0) bank.DealWithTheLastBet();
+            //if (bank.bet == 0) bank.DealWithTheLastBet();//Last Bet Aotomatic add
 
             dealManager.StartDraw();
             uiManager.dealButton.transform.DOMoveX(uiManager.buttonHidePos.position.x, 0.5f);
@@ -82,6 +83,7 @@ public class GameManager : MonoBehaviour
         if (state == State.PlayerTurn)
         {
             state = State.DealerTurn;
+            dealer.hand.handValue.Show();
             dealer.DealerTurn();
         }
     }
@@ -96,5 +98,29 @@ public class GameManager : MonoBehaviour
     {
         player.hand.Clear();
         dealer.hand.Clear();
+    }
+
+    //----------------------------------------------State Changes------------------------------------------------------------
+
+    public void StateSetToStartOfHand()
+    {
+        state = State.StartOfHand;
+        bank.DealWithTheLastBet();
+    }
+    public void StateSetToDealing()
+    {
+        state = State.Dealing;
+    }
+    public void StateSetToPlayerTurn()
+    {
+        state = State.PlayerTurn;
+    }
+    public void StateSetToDealerTurn(int delay = 0)
+    {
+        state = State.DealerTurn;
+    }
+    public void StateSetToEndOfHand()
+    {
+        state = State.EndOfHand;
     }
 }

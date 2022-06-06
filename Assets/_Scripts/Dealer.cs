@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
+using System;
 
 public class Dealer : MonoBehaviour
 {
@@ -24,9 +25,12 @@ public class Dealer : MonoBehaviour
 
     public async Task DealerHit()
     {
+        await Task.Delay(TimeSpan.FromSeconds(0.25f));
+
         gameManager.DealerHit();
-        gameManager.state = GameManager.State.Dealing;
-        while (gameManager.state!=GameManager.State.DealerTurn)
+        gameManager.StateSetToDealing();
+
+        while (gameManager.state != GameManager.State.DealerTurn)
         {
             await Task.Yield();
         }

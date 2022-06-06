@@ -53,29 +53,30 @@ public class DealManager : MonoBehaviour
     //-----------------------------------------------Tasks--------------------------------------------------------------------
     public async void Hit(Hand hand, bool doubleBet)
     {
-        gameManager.state = GameManager.State.Dealing;
+        gameManager.StateSetToDealing();
 
         await Draw(hand);
 
         if (doubleBet)
         {
-            gameManager.state = GameManager.State.PlayerTurn;
+            gameManager.StateSetToPlayerTurn();
             gameManager.Stand();
             return;
         }
 
         if (hand == playerHand && playerHand.handValue.value <= 21) gameManager.state = GameManager.State.PlayerTurn;
-        else gameManager.state = GameManager.State.DealerTurn;
+        else gameManager.StateSetToDealerTurn();
     }
     public async void StartDraw()
     {
-        gameManager.state = GameManager.State.Dealing;
+        gameManager.StateSetToDealing();
 
         await Draw(playerHand);
         await Draw(dealerHand);
         await Draw(playerHand);
         playerHand.handValue.Show();
         await Draw(dealerHand);
+        dealerHand.handValue.Show(dealerHand.cards[0].value);
 
         if (playerHand.handValue.value == 21 || dealerHand.handValue.value == 21)
         {
@@ -101,7 +102,7 @@ public class DealManager : MonoBehaviour
     }
     public async Task TurnDealerSecondCard()
     {
-        dealerHand.handValue.Show();
+        //dealerHand.handValue.Show();
         dealerHand.cards[1].doNotTurn = false;
         dealerHand.cards[1].dealingFinished = false;
         dealerHand.cards[1].Turn();

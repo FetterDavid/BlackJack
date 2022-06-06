@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - Bank
     - Card
     - Chip
+    - ChipInBank
     - DealManager
     - Dealer
     - GameManager
@@ -76,47 +77,49 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1488}
     - Class: 114
-      Script: {instanceID: 1732}
+      Script: {instanceID: 1528}
     - Class: 114
-      Script: {instanceID: 1828}
+      Script: {instanceID: 1734}
     - Class: 114
-      Script: {instanceID: 1838}
+      Script: {instanceID: 1830}
     - Class: 114
-      Script: {instanceID: 1876}
+      Script: {instanceID: 1840}
     - Class: 114
-      Script: {instanceID: 2282}
+      Script: {instanceID: 1878}
     - Class: 114
-      Script: {instanceID: 2368}
+      Script: {instanceID: 2284}
     - Class: 114
-      Script: {instanceID: 2588}
+      Script: {instanceID: 2370}
     - Class: 114
-      Script: {instanceID: 2728}
+      Script: {instanceID: 2590}
     - Class: 114
-      Script: {instanceID: 2900}
+      Script: {instanceID: 2730}
     - Class: 114
-      Script: {instanceID: 2950}
+      Script: {instanceID: 2902}
     - Class: 114
-      Script: {instanceID: 2966}
+      Script: {instanceID: 2952}
     - Class: 114
-      Script: {instanceID: 3138}
+      Script: {instanceID: 2968}
     - Class: 114
-      Script: {instanceID: 3384}
+      Script: {instanceID: 3140}
     - Class: 114
-      Script: {instanceID: 3504}
+      Script: {instanceID: 3386}
     - Class: 114
-      Script: {instanceID: 3970}
+      Script: {instanceID: 3506}
     - Class: 114
-      Script: {instanceID: 3984}
+      Script: {instanceID: 3972}
     - Class: 114
-      Script: {instanceID: 4522}
+      Script: {instanceID: 3986}
     - Class: 114
-      Script: {instanceID: 4928}
+      Script: {instanceID: 4524}
     - Class: 114
-      Script: {instanceID: 5042}
+      Script: {instanceID: 4930}
     - Class: 114
-      Script: {instanceID: 5330}
+      Script: {instanceID: 5044}
     - Class: 114
-      Script: {instanceID: 5786}
+      Script: {instanceID: 5332}
+    - Class: 114
+      Script: {instanceID: 5788}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -142,6 +145,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Image
+  - hash:
+      serializedVersion: 2
+      Hash: 8f53e526bdbccdd23d9024c0e5a1cfcc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ChipInBank
   - hash:
       serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
@@ -192,7 +201,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 716c34774bd3df17182f577758afd992
+      Hash: ae60187ebab648fb12120f987875e474
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Hand
@@ -258,7 +267,7 @@ ScriptsOnlyBuild:
     className: PlaymodeTestsController
   - hash:
       serializedVersion: 2
-      Hash: 87966d5d75b7aadb25ff9a49d9a41049
+      Hash: e63d83b1a9f4b9bf1a622ccbd19d5040
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Bank
@@ -480,7 +489,7 @@ ScriptsOnlyBuild:
     className: BaseInput
   - hash:
       serializedVersion: 2
-      Hash: 44549eb5c16eb2a132ee3d51d009f264
+      Hash: 3d1d0baff8ea80a059c8c79b8e34556c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HandValue
@@ -721,4 +730,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/Fetter/Documents/Builds/BlackJack.apk
+  playerPath: C:/Users/Fetter/Documents/Builds/BlackJack1.01.apk

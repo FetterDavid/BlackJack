@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
 
     public void StartOfHand(GameObject resultObj)
     {
-        gameManager.state = GameManager.State.StartOfHand;
+        gameManager.StateSetToStartOfHand();
         gameManager.HandsClear();
 
         resultObj.SetActive(false);
@@ -33,7 +33,7 @@ public class UIManager : MonoBehaviour
 
     public void StartPlayerTurn()
     {
-        gameManager.state = GameManager.State.PlayerTurn;
+        gameManager.StateSetToPlayerTurn();
 
         hitButton.transform.DOMoveX(buttonPos.position.x, 0.5f);
         standButton.transform.DOMoveX(buttonPos.position.x, 0.5f);

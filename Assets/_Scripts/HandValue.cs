@@ -38,8 +38,11 @@ public class HandValue : MonoBehaviour
         valueText.text = value.ToString();
     }
 
-    public void Show()
+    public void Show(int temp = 0)
     {
+        if(temp!=0) valueText.text=temp.ToString();
+        else valueText.text = value.ToString();
+
         transform.DOScale(new Vector3(1, 1, 1), 0.2f);
     }
     public void Hide()
