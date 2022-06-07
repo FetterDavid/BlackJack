@@ -10,6 +10,11 @@ public class ChipInBank : MonoBehaviour
 
     public void Select()
     {
-        bank.RemoveChip(this);
+        GameManager gameManager = FindObjectOfType<GameManager>();
+
+        if (gameManager.state == GameManager.State.StartOfHand)
+        {
+            bank.RemoveChip(this);
+        }
     }
 }
